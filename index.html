@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+    <script src="js/fontsize.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <title>Document</title>
+</head>
+<body>
+
+    <!--音乐按钮-->
+
+      <div class="music animate musicRotate infinite"></div>
+
+
+   <!--第一屏-->
+
+   <div class="page page1">
+
+       <img class="animate moveToRight" src="images/photo.jpg" alt=""/>
+
+       <p class="animate moveToRight delay1">姓名:刘承泽</p>
+       <p class="animate moveToRight delay2">性别:男</p>
+       <p class="animate moveToRight delay3">生日:1997年6月6日</p>
+
+
+   </div>
+
+    <!--第二屏-->
+    <div class="page page2 pageDown">
+
+        <p class="animate rotateText hide">欢迎第二屏</p>
+
+
+    </div>
+
+
+    <audio src="source/jiangshanmeiren.mp3" autoplay></audio>
+
+</body>
+</html>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script>
+
+    $(".music").tap(
+            function(){
+
+                $(this).toggleClass("animate");
+
+
+                if(  $("audio").get(0).paused  ){
+
+                    $("audio").get(0).play();
+                }
+                else{
+                    $("audio").get(0).pause();
+                }
+
+
+            }
+    )
+
+    /*向上划屏*/
+    $("body").swipeUp(
+            function(){
+
+                $(".page").eq(0).addClass("");
+                $(".page").eq(1).removeClass("pageDown");
+
+                $(".page2 p").removeClass("hide");
+
+
+                $(".page1").children().addClass("hide");
+            }
+    )
+
+    $("body").swipeDown(
+            function(){
+
+                $(".page").eq(0).removeClass("pageUp");
+                $(".page").eq(1).addClass("pageDown");
+
+                $(".page1").children().removeClass("hide");
+
+                $(".page2").children().addClass("hide");
+            }
+    )
+
+
+</script>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+.animated{animation:1s linear}  /*基本动画类*/
+.infinite{animation-iteration-count: infinite} /*循环无限次*/
+
+.rotateNum1{
+    animation-name: rotateNum1;
+}
+.rotateNum2{
+    animation-name: rotateNum2;
+}
+
+
+@keyframes rotateNum1 {
+    0%{
+        transform: scale(0) rotate(0deg);
+    }
+    100%{ transform: scale(1) rotate(360deg);}
+}
+
+@keyframes rotateNum2 {
+    0%{
+        transform: scale(0) translateX(-10rem);
+    }
+    100%{ transform: scale(1) translateX(0rem)}
+}
+
+
+
+
+
+
+

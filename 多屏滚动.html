@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="css/more.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <script src="js/fontsize.js"></script>
+
+</head>
+<body>
+
+  <div class="page page1"><p class="animated rotateNum1">1</p></div>
+  <div class="page page2 pageDown"><p  class="animated rotateNum2 hide">2</p></div>
+  <div class="page page3 pageDown"><p>3</p></div>
+  <div class="page page4 pageDown"><p>4</p></div>
+  <div class="page page5 pageDown"><p>5</p></div>
+
+
+
+
+
+</body>
+</html>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+
+<script>
+
+     var  i=0;  //当前页码
+
+     //获取总的页数
+     var pageCount=$(".page").length-1;
+
+    /*上滑*/
+    $("body").swipeUp(
+
+            function(){
+
+                if(i<pageCount){
+
+                    $(".page").eq(i).addClass("pageUp");
+                    $(".page").eq(i).children().addClass("hide");
+                    i++;
+                    $(".page").eq(i).removeClass("pageDown");
+                    $(".page").eq(i).children().removeClass("hide");
+
+                }
+
+
+
+            }
+    )
+
+
+    /*下滑*/
+     $("body").swipeDown(
+
+             function(){
+
+                 if(i>0){
+
+                     $(".page").eq(i).addClass("pageDown");
+                     $(".page").eq(i).children().addClass("hide");
+                     i--;
+                     $(".page").eq(i).removeClass("pageUp");
+                     $(".page").eq(i).children().removeClass("hide");
+                 }
+
+
+
+             }
+     )
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
